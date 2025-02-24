@@ -1,0 +1,67 @@
+﻿@using EntityLayer.Concrete
+@model List<Content>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3>Yazılar</h3>
+<br />
+<!DOCTYPE html>
+<html>
+@using (Html.BeginForm("Index", "AdminContent", FormMethod.Post))
+{
+    <body class="hold-transition sidebar-mini">
+        <!-- Site wrapper -->
+        <div class="wrapper">
+            <section class="content">
+                <div class="container-fluid">
+                    <p style="display: flex; align-items: center; gap: 10px;">
+                        Aranacak Kelimeyi Giriniz: @Html.TextBox("p")
+                        <input class="btn btn-info" type="submit" value="Ara" />
+                    </p>
+                    <!-- Timelime example  -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- The time line -->
+                            <div class="timeline">
+                                <!-- timeline time label -->
+                                @foreach (var x in Model)
+                                {
+                                    <div class="time-label">
+                                        <span class="bg-warning">@(((DateTime)x.ContentDate).ToString("dd-MMMM-yyyy"))</span>
+                                    </div>
+                                    <!-- /.timeline-label -->
+                                    <!-- timeline item -->
+                                    <div>
+                                        <i class="fas fa-pencil-alt bg-success"></i>
+                                        <div class="timeline-item">
+                                            <h3 class="timeline-header">
+                                                <a href="#">
+                                                    @x.Writer.WriterName @x.Writer.WriterSurName
+                                                </a>
+                                                <small>
+                                                    (@x.Heading.HeadingName)
+                                                </small>
+                                            </h3>
+                                            <div class="timeline-body">
+                                                @x.ContentValue
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br />
+                                }
+                                <!-- END timeline item -->
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </div>
+                <!-- /.timeline -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- ./wrapper -->
+    </body>
+}
+</html>

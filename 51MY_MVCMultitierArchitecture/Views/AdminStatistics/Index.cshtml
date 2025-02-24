@@ -1,0 +1,154 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h3>İstatistikler</h3>
+<br />
+
+<html>
+<body>
+    <link href="~/web2/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <div class="total-content">
+        <div class="list_of_members" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+            <div class="orders" style="width: 250px; height: 150px; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; background: #FFC312;">
+                <div class="icon-text" style="font-family: 'Open Sans', sans-serif;">
+                    <p>Kategori Sayısı</p>
+                    <h3 style="margin-top: 15px;">@ViewBag.CategoryCount</h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="width: 250px; height: 150px; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; background: #F79F1F;">
+                <div class="icon-text" style="font-family: 'Open Sans', sans-serif;">
+                    <p>Kategorisi Yazılım Olan Başlık Sayısı</p>
+                    <h3 style="margin-top: 15px;">@ViewBag.GetHeadingCount</h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="width: 250px; height: 150px; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; background: #EE5A24;">
+                <div class="icon-text" style="font-family: 'Open Sans', sans-serif;">
+                    <p>İsminde "em" Harfi Geçen Yazar Sayısı</p>
+                    <h3 style="margin-top: 15px;">@ViewBag.GetWriterName</h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="width: 250px; height: 150px; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; background: #EA2027;">
+                <div class="icon-text" style="font-family: 'Open Sans', sans-serif;">
+                    <p>En Fazla Başlığa Sahip Kategori Adı</p>
+                    <h3 style="margin-top: 15px;">@ViewBag.GetCategoryName</h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="list_of_members" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+            <div class="orders" style="width: 250px; height: 150px; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; background: #A3CB38; ">
+                <div class="icon-text" style="font-family: 'Open Sans', sans-serif;">
+                    <p>Aktif Kategori Sayısı</p>
+                    <h3 style="margin-top: 15px;">@ViewBag.GetCategoryCountStateTrue</h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="width: 250px; height: 150px; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; background: #009432; ">
+                <div class="icon-text" style="font-family: 'Open Sans', sans-serif;">
+                    <p>Pasif Kategori Sayısı</p>
+                    <h3 style="margin-top: 15px;">@ViewBag.GetCategoryCountStateFalse</h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="width: 250px; height: 150px; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; background: #006266; ">
+                <div class="icon-text" style="font-family: 'Open Sans', sans-serif;">
+                    <p>Aktif ve Pasif Kategori Sayısı Farkı</p>
+                    <h3 style="margin-top: 15px;">@ViewBag.GetCategoryCountStateDif</h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="width: 250px; height: 150px; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; background: #12CBC4; ">
+                <div class="icon-text" style="font-family: 'Open Sans', sans-serif;">
+                    <p>Kategori Sayısı</p>
+                    <h3 style="margin-top: 15px;">@ViewBag.CategoryCount</h3>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    @*<div class="total-content">
+        <div class="list_of_members">
+            <div class="sales" style="background-color:#1abc9c">
+                <div class="icon-text">
+                    <h3>@ViewBag.d1</h3>
+                    <p>Toplam Cari</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="new-users" style="background-color:#2ecc71">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.d2</h3>
+                    <p>Ürün Sayısı</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="background-color:#3498db">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.d3</h3>
+                    <p>Personel Sayısı</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="visitors" style="background-color:#9b59b6">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.d4</h3>
+                    <p>Kategori Sayısı</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="total-content">
+        <div class="list_of_members">
+            <div class="sales" style="background-color:#1abc9c">
+                <div class="icon-text">
+                    <h3>@ViewBag.d1</h3>
+                    <p>Toplam Cari</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="new-users" style="background-color:#2ecc71">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.d2</h3>
+                    <p>Ürün Sayısı</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="orders" style="background-color:#3498db">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.d3</h3>
+                    <p>Personel Sayısı</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="visitors" style="background-color:#9b59b6">
+
+                <div class="icon-text">
+                    <h3>@ViewBag.d4</h3>
+                    <p>Kategori Sayısı</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>*@
+    <div class="clearfix"></div>
+</body>
+</html>
+

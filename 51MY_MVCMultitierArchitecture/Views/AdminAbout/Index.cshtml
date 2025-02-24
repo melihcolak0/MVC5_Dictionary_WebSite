@@ -1,0 +1,38 @@
+﻿
+@using EntityLayer.Concrete
+@model List<About>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h3>Hakkımda Bölümü</h3>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Detay 1</th>
+        <th>Detay 2</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <th>@x.AboutId</th>
+            <td>@x.AboutDetails</td>
+            <td>@x.AboutDetails2</td>
+            <td><a href="/AdminAbout/DeleteAbout/@x.AboutId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/AdminAbout/UpdateAbout/@x.AboutId" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<br />
+<button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+    Yeni Hakkımızda Bölümü Ekle
+</button>
+
+@Html.Partial("AddAboutPartial", "AdminAbout")
+
