@@ -6,19 +6,19 @@ MVC5 ve ASP.NET Web Application (.NET Framework) kullanarak dinamik bir Sözlük
 N-Tier Architecture (N Katmanlı Mimari), yazılım uygulamalarını birden fazla bağımsız katmana (layer) bölerek geliştirmeye olanak tanıyan bir yazılım mimari modelidir.
 Bu mimari, uygulamanın farklı katmanlarını belirleyerek modülerlik, ölçeklenebilirlik ve bakım kolaylığı sağlar.
 
-Genel anlamda 4 katman üzerinde proejyi oluşturdum. Presentation Layer (Sunum Katmanı), kullanıcının doğrudan etkileşimde bulunduğu katmandır. Burada HTML5, CSS3, Bootstrap ve JavaScript kullanarak web sayfaları oluşturdum. Business Logic Layer (İş Mantığı Katmanı), uygulamanın kurallarını ve iş mantığını barındırır. Service ve Manager olarak tüm entity'lerin metotlarını oluşturup kontrollerini yaptım. Data Access Layer (Veri Erişim Katmanı), veritabanı ile etkileşimi sağlar. Burada veri tabanındaki verileri gereken şekilde kulandım. Entity Layer (Varlık Katmanı), verileri saklayan katmandır. Burası CodeFirst yaklaşımının başlangıcıdır. Veri tabanındaki tablolar ve sütunlar yerine bu katmanda sınıflar ve property'ler kullandım.
+Genel anlamda 4 katman üzerinde projeyi oluşturdum. Presentation Layer (Sunum Katmanı), kullanıcının doğrudan etkileşimde bulunduğu katmandır. Burada HTML5, CSS3, Bootstrap ve JavaScript kullanarak web sayfaları oluşturdum. Business Logic Layer (İş Mantığı Katmanı), uygulamanın kurallarını ve iş mantığını barındırır. Service ve Manager olarak tüm entity'lerin metotlarını oluşturup kontrollerini yaptım. Data Access Layer (Veri Erişim Katmanı), veritabanı ile etkileşimi sağlar. Burada veri tabanındaki verileri gereken şekilde kullandım. Entity Layer (Varlık Katmanı), verileri saklayan katmandır. Burası CodeFirst yaklaşımının başlangıcıdır. Veri tabanındaki tablolar ve sütunlar yerine bu katmanda sınıflar ve property'ler kullandım.
 
 Bu projede değiştirilmesi gereken bazı noktalar olabilir fakat burada asıl amaç Back-end Development anlamında MVC5 ile admin panelli bir sistem kurmaktır. Front-end anlamında düzeltmeler yapılabilir.
 
 Projede genel anlamda 4 farklı bölüm bulunmaktadır;
 
-1- Admin Paneli: Adminler'in giriş yapıp kategoriler, başlıklar, yazılar, yazarlar, mesajlar, yetkilendirmeler gibi alanlar ile ilgili CRUD (Create, Read, Update, Delete) işlemlerinin yapıldığı bölümdür.
-2- Yazar Paneli: Yazarlar'ın sisteme girip yeni başlık açma, başlık altına yazı yazma, mesajlaşma ve kendi profilleri için düzenleme yapma gibi işlemlerin yapıldığı bölümdür.
-3- Sözlük Sayfası: Burada her kullanıcının hiçbir Login işlemi yapmadan görebildiği kısımdır. Bu bölümde başlıklara göre ayrılmış, siteye yazılan tüm içerikler görülebilir.
-4- Ana Sayfa: Burada da benim ve bu proje ile ilgili bilgiler yer alıyor. Yine tüm kullanıcılar herhangi bir Login işlem iyapmdan bu sayfayı görüntüleyebilir.
+1- Admin Paneli: Adminler'in giriş yapıp kategoriler, başlıklar, yazılar, yazarlar, mesajlar, yetkilendirmeler gibi alanlar ile ilgili CRUD (Create, Read, Update, Delete) işlemlerinin yaptığı bölümdür.  
+2- Yazar Paneli: Yazarlar'ın sisteme girip yeni başlık açma, başlık altına yazı yazma, mesajlaşma ve kendi profilleri için düzenleme yapma gibi işlemlerini yaptığı bölümdür.  
+3- Sözlük Sayfası: Bu sayfa her kullanıcının hiçbir Login işlemi yapmadan görebildiği kısımdır. Bu bölümde başlıklara göre ayrılmış, siteye yazılan tüm içerikler görülebilir.  
+4- Ana Sayfa: Burada da Melih Çolak ve bu proje ile ilgili bilgiler yer alıyor. Yine tüm kullanıcılar herhangi bir Login işlemi yapmdan bu sayfayı görüntüleyebilir.
 
 ## :arrow_forward: Admin Paneli
-Bu eğitimde ilk olarak admin panelini oluşturdum. Admin tüm tablolar ile ilgili CRUD işlemlerini yapabildiği için temeli bu bölüm ile atmak istedim. Bu sayfa Kategoriler, Başlıklar, Yazılar, Yazarlar, Grafikler, Hakkımızda, Raporlar, İletişim ve Mesajlar, Yetkilendirmeler, Hata Sayfaları, Yetenek Kartım, Siteye Git ve Çıkış Yap bölümlerinden oluşmaktadır.
+Bu eğitimde ilk olarak admin panelini oluşturdum. Admin tüm tablolar ile ilgili CRUD işlemlerini yapabildiği için temeli bu bölüm ile atmak istedim. Bu sayfa LogIn, Kategoriler, Başlıklar, Yazılar, Yazarlar, Grafikler, Hakkımızda, Raporlar, İletişim ve Mesajlar, Yetkilendirmeler, Hata Sayfaları, Yetenek Kartım, Siteye Git ve Çıkış Yap bölümlerinden oluşmaktadır.
 
 ### :triangular_flag_on_post: LogIn Bölümü
 LogIn bölümünde Tbl_Admins tablosundaki adminler mail ve şifreleri ile birlikte giriş yapabilirler. Paneldeki veriler admin değişkliğine göre uyum sağlamaktadır. Bunun için Session Yönetimi kullandım. 
@@ -108,7 +108,7 @@ Siteye Git bölümü Ana Sayfa'ya yönlendirme yapar.
 Çıkış Yap bölümünde giriş yapmış olan adminin doğrulaması kaldırılarak çıkış yapmış hale getirilir.
 
 ## :arrow_forward: Yazar Paneli
-Yazar panelinde siteye kayıtlı her yazar sisteme giriş yaparak sözlük işlemlerinde bulunabilir. Burada Profilim, Başlıklarım, Tüm Başlıklar, Yazılarım, Mesajlar, Siteye Git ve Çıkış Yap bölümleri bulunmaktadır.
+Yazar panelinde siteye kayıtlı her yazar sisteme giriş yaparak sözlük işlemlerinde bulunabilir. Burada LogIn, Profilim, Başlıklarım, Tüm Başlıklar, Yazılarım, Mesajlar, Siteye Git ve Çıkış Yap bölümleri bulunmaktadır.
 
 ### :triangular_flag_on_post: LogIn Bölümü
 LogIn bölümünde Tbl_Writers tablosundaki yazarlar mail ve şifreleri ile birlikte giriş yapabilirler. Paneldeki veriler yazar değişkliğine göre uyum sağlamaktadır. Bunun için Session Yönetimi kullandım.
